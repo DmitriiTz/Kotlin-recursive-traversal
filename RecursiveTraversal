@@ -1,0 +1,25 @@
+/**
+ * Example:
+ * var ti = TreeNode(5)
+ * var v = ti.`val`
+ * Definition for a binary tree node.
+ * class TreeNode(var `val`: Int) {
+ *     var left: TreeNode? = null
+ *     var right: TreeNode? = null
+ * }
+ */
+class Solution {
+    var list = mutableListOf<Int>()
+    fun preorderTraversal(root: TreeNode?): List<Int> {
+        if (root != null) {
+            list.add(root.`val`) //pre-order traversals
+            preorderTraversal(root.left)
+            //list.add(root.`val`) in-order traversals
+            preorderTraversal(root.right)
+            //list.add(root.`val`) post-order traversals
+            return list.toList()
+        } else {
+            return listOf<Int>()
+        }
+    }
+}
